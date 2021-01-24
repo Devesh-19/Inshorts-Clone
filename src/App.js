@@ -1,9 +1,10 @@
 import "./App.css";
+import NavInshorts from "./components/NavInshorts";
 
 function App() {
 	return (
-		<div className="App">
-			<h1>Hello</h1>
+		<div>
+			<NavInshorts />
 		</div>
 	);
 }
