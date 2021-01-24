@@ -16,6 +16,7 @@ import {
 	ThemeProvider,
 	useMediaQuery,
 } from "@material-ui/core";
+import categories from "../data/category";
 
 const useStyles = makeStyles({
 	list: {
@@ -67,24 +68,12 @@ export default function HamburgerDrawer() {
 			onClick={toggleDrawer(anchor, false)}
 			onKeyDown={toggleDrawer(anchor, false)}>
 			<List>
-				{["Inbox", "Starred", "Send email", "Drafts"].map(
-					(text, index) => (
-						<ListItem button key={text}>
-							<ListItemIcon>
-								{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-							</ListItemIcon>
-							<ListItemText primary={text} />
-						</ListItem>
-					)
-				)}
+				<ListItem>Categories</ListItem>
 			</List>
 			<Divider />
 			<List>
-				{["All mail", "Trash", "Spam"].map((text, index) => (
+				{categories.map((text, index) => (
 					<ListItem button key={text}>
-						<ListItemIcon>
-							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-						</ListItemIcon>
 						<ListItemText primary={text} />
 					</ListItem>
 				))}
