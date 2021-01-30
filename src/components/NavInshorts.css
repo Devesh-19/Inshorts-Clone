@@ -5,6 +5,10 @@
 	align-items: center;
 }
 
+.hamburger-icon {
+	position: absolute;
+}
+
 .inshorts-logo {
 	margin-left: auto;
 	margin-right: auto;

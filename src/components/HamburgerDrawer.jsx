@@ -6,10 +6,7 @@ import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
 import {
 	createMuiTheme,
@@ -29,7 +26,7 @@ const useStyles = makeStyles({
 	},
 });
 
-export default function HamburgerDrawer() {
+export default function HamburgerDrawer({ setCategory }) {
 	const classes = useStyles();
 	const [state, setState] = React.useState({
 		left: false,
@@ -73,7 +70,17 @@ export default function HamburgerDrawer() {
 			<Divider />
 			<List>
 				{categories.map((text, index) => (
-					<ListItem button key={text}>
+					<ListItem
+						style={{
+							height: 40,
+							borderRadius: 5,
+							textTransform: "capitalize",
+						}}
+						button
+						key={text}
+						onClick={() => {
+							setCategory(text);
+						}}>
 						<ListItemText primary={text} />
 					</ListItem>
 				))}
