@@ -4,6 +4,39 @@ import "./NewsCard.css";
 const NewsCard = ({ newsItem }) => {
 	console.log(newsItem);
 
+	const fullDate = new Date(newsItem.publishedAt);
+	const date = fullDate.toString().split(" ");
+
+	const hour = parseInt(date[4].substring(0, 2));
+	const time = hour > 12;
+
+	const renderSwitch = (day) => {
+		switch (day) {
+			case "Mon":
+				return "Monday";
+				break;
+			case "Tue":
+				return "Tuesday";
+				break;
+			case "Wed":
+				return "Wednesday";
+				break;
+			case "Thu":
+				return "Thursday";
+				break;
+			case "Fri":
+				return "Friday";
+				break;
+			case "Sat":
+				return "Saturday";
+				break;
+
+			default:
+				return null;
+				break;
+		}
+	};
+
 	return (
 		<div className="newsCard">
 			<img
@@ -25,7 +58,25 @@ const NewsCard = ({ newsItem }) => {
 						</a>
 						<span className="muted">
 							{" "}
-							by {newsItem.author ? newsItem.author : "Unknown"}
+							by {newsItem.author
+								? newsItem.author
+								: "Unknown"} /{" "}
+							{time
+								? hour - 12 < 10
+									? `0${hour - 12}:${date[4].substring(
+											3,
+											5
+									  )} pm`
+									: `${hour - 12}:${date[4].substring(
+											3,
+											5
+									  )} pm`
+								: `${hour} : ${date[4].substring(
+										3,
+										5
+								  )} am`}{" "}
+							on {date[2]} {date[1]} {date[3]},{" "}
+							{renderSwitch(date[0])}
 						</span>
 					</span>
 				</div>
