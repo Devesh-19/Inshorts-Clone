@@ -12,12 +12,15 @@ const NavInshorts = ({ setCategory, setLoadMore }) => {
 				/>
 			</div>
 
-			<img
-				src="https://assets.inshorts.com/website_assets/images/logo_inshorts.png"
-				alt="Inshorts_Logo"
-				height="80%"
-				className="inshorts-logo"
-			/>
+			<a
+				href="https://dev-inshorts.netlify.app/"
+				className="inshorts-logo">
+				<img
+					src="https://assets.inshorts.com/website_assets/images/logo_inshorts.png"
+					alt="Inshorts_Logo"
+					height="100%"
+				/>
+			</a>
 		</div>
 	);
 };
