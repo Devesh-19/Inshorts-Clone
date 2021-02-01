@@ -2,8 +2,6 @@ import React from "react";
 import "./NewsCard.css";
 
 const NewsCard = ({ newsItem }) => {
-	console.log(newsItem);
-
 	const fullDate = new Date(newsItem.publishedAt);
 	const date = fullDate.toString().split(" ");
 
@@ -14,26 +12,19 @@ const NewsCard = ({ newsItem }) => {
 		switch (day) {
 			case "Mon":
 				return "Monday";
-				break;
 			case "Tue":
 				return "Tuesday";
-				break;
 			case "Wed":
 				return "Wednesday";
-				break;
 			case "Thu":
 				return "Thursday";
-				break;
 			case "Fri":
 				return "Friday";
-				break;
 			case "Sat":
 				return "Saturday";
-				break;
 
 			default:
 				return null;
-				break;
 		}
 	};
 

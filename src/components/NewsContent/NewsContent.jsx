@@ -9,8 +9,16 @@ const NewsContent = ({ newsArray, newsResults }) => {
 			<div className="content">
 				<div className="downloadMessage">
 					<span className="downloadText">
-						For the best experience use inshorts app on your
-						smartphone
+						For the best experience use{" "}
+						<b>
+							<a
+								rel="noreferrer"
+								target="_blank"
+								href="https://inshorts.com/mobile">
+								inshorts
+							</a>
+						</b>{" "}
+						app on your smartphone
 					</span>
 					<img
 						alt="app store"
@@ -26,6 +34,8 @@ const NewsContent = ({ newsArray, newsResults }) => {
 				{newsArray.map((newsItem, itemIndex) => (
 					<NewsCard newsItem={newsItem} key={itemIndex} />
 				))}
+
+				<button className="loadMore">Load More</button>
 			</div>
 		</Container>
 	);
