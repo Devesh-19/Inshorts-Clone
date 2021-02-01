@@ -3,7 +3,7 @@ import React from "react";
 import NewsCard from "../NewsCard/NewsCard";
 import "./NewsContent.css";
 
-const NewsContent = ({ newsArray, newsResults }) => {
+const NewsContent = ({ newsArray, newsResults, loadMore, setLoadMore }) => {
 	return (
 		<Container maxWidth="md">
 			<div className="content">
@@ -31,11 +31,19 @@ const NewsContent = ({ newsArray, newsResults }) => {
 						src="https://assets.inshorts.com/website_assets/images/playstore.png"
 					/>
 				</div>
-				{newsArray.map((newsItem, itemIndex) => (
+				{newsArray.slice(0, loadMore).map((newsItem, itemIndex) => (
 					<NewsCard newsItem={newsItem} key={itemIndex} />
 				))}
 
-				<button className="loadMore">Load More</button>
+				{loadMore < newsResults && (
+					<button
+						className="loadMore"
+						onClick={() => {
+							setLoadMore((prevValue) => prevValue + 20);
+						}}>
+						Load More
+					</button>
+				)}
 			</div>
 		</Container>
 	);

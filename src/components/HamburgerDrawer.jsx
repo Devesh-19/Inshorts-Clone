@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 	},
 });
 
-export default function HamburgerDrawer({ setCategory }) {
+export default function HamburgerDrawer({ setCategory, setLoadMore }) {
 	const classes = useStyles();
 	const [state, setState] = React.useState({
 		left: false,
@@ -79,6 +79,7 @@ export default function HamburgerDrawer({ setCategory }) {
 						button
 						key={text}
 						onClick={() => {
+							setLoadMore(20);
 							setCategory(text);
 						}}>
 						<ListItemText primary={text} />

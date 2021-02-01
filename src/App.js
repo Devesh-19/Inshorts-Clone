@@ -9,6 +9,7 @@ function App() {
 	const [category, setCategory] = useState("general");
 	const [newsArray, setNewsArray] = useState([]);
 	const [newsResults, setnewsResults] = useState();
+	const [loadMore, setLoadMore] = useState(20);
 
 	useEffect(() => {
 		const newsApi = async () => {
@@ -28,8 +29,13 @@ function App() {
 
 	return (
 		<div>
-			<NavInshorts setCategory={setCategory} />
-			<NewsContent newsArray={newsArray} newsResults={newsResults} />
+			<NavInshorts setLoadMore={setLoadMore} setCategory={setCategory} />
+			<NewsContent
+				loadMore={loadMore}
+				setLoadMore={setLoadMore}
+				newsArray={newsArray}
+				newsResults={newsResults}
+			/>
 			<Footer />
 		</div>
 	);
